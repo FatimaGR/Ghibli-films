@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { getFilms, getCharacters, getLocations, getFilmById } from "../services/services.js"
+import Navbar from "../components/Navbar.jsx"
 
 function Locations(){
   const { films, filmsLoading, filmsError } = getFilms()
@@ -8,6 +9,7 @@ function Locations(){
 
   return(
     <>
+      <Navbar/>
       <h1>Locations</h1>
       <ul>
         <p>Locations</p>
