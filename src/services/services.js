@@ -31,3 +31,11 @@ export function getLocations(){
   const locationsError = error
   return {locations, locationsLoading, locationsError}
 }
+
+export function getSpecies(){
+  const {data, loading, error} = useFetch("/species")
+  const species = data
+  const speciesLoading = loading
+  const speciesError = error
+  return {species, speciesLoading, speciesError}
+}
