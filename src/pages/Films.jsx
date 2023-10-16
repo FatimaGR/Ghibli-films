@@ -1,3 +1,4 @@
+import { useState } from "react"
 import { getFilms } from "../services/services.js"
 import Navbar from "../components/Navbar.jsx"
 import FilmCard from "../components/FilmCard.jsx"
@@ -8,6 +9,16 @@ import filmsbanner from "../assets/films-banner.png"
 function Films(){
   const { films, filmsLoading, filmsError } = getFilms()
   const filters = ["locations", "release_date", "director"]
+  const [filmsList, setFilmsList] = useState([])
+  const [isName, setIsName] = useState(false)
+  let nameUpper = ""
+
+  function handleSearchSubmit(name){
+    setIsName(true)
+    nameUpper = name.toUpperCase()
+    const filmsFiltered = films.filter((film) => film.title.toUpperCase().includes(nameUpper))
+    setFilmsList(filmsFiltered)
+  }
 
   return(
     <>
@@ -27,12 +38,14 @@ function Films(){
           <p>Filters</p>
           {filters.map((filter) => <FilterCard key={filter} option={filter}/>)}
         </div>
-        <Search/>
+        <Search onSubmit={handleSearchSubmit}/>
       </div>
       <ul>
         {filmsError && <li>Try again...</li>}
         {filmsLoading && <li>Loading...</li>}
-        {films?.map((film) => <FilmCard key={film.id} film={film}/>)}
+        {filmsList.length == 0 & !isName ?
+          films?.map((film) => <FilmCard key={film.id} film={film}/>) : filmsList?.map((film) => <FilmCard key={film.id} film={film}/>)
+        }
       </ul>
     </>
   )

@@ -38,8 +38,7 @@ function CharacterCard({character}){
         </li>
         <li>
           <p>Species</p>
-          <p>{specie?.name}
-          </p>
+          <p>{specie?.name}</p>
         </li>
       </ul>
     </div>
