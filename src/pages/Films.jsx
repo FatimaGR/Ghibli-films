@@ -6,18 +6,54 @@ import Search from "../components/Search.jsx"
 import FilterCard from "../components/FilterCard.jsx"
 import filmsbanner from "../assets/films-banner.png"
 
+function addingDirectors(films){
+  let directors = []
+  films?.map((film) => {
+    if (!directors.includes(film.director)){
+        directors.push(film.director)
+      }
+  })
+  return directors
+}
+
+function initialFilms(films, filmsList, condition){
+  if (filmsList.length == 0 & !condition) return films;
+  return filmsList
+}
+
+function filterFilms(films, filters){
+  if (filters.length === 0) return films;
+  return films.filter(film => directorFilter.includes(film.director))
+}
+
 function Films(){
   const { films, filmsLoading, filmsError } = getFilms()
-  const filters = ["locations", "release_date", "director"]
-  const [filmsList, setFilmsList] = useState([])
+  // const filters = ["locations", "release_date", "director"]
+  const [searchedFilms, setSearchedFilms] = useState([])
+  const [directorFilter, setDirectorFilter] = useState([])
   const [isName, setIsName] = useState(false)
   let nameUpper = ""
+
+  const directorsList = addingDirectors(films)
+  const filmsList = initialFilms(films, searchedFilms, isName)
+  const filteredFilms = filterFilms(filmsList, directorFilter)
 
   function handleSearchSubmit(name){
     setIsName(true)
     nameUpper = name.toUpperCase()
     const filmsFiltered = films.filter((film) => film.title.toUpperCase().includes(nameUpper))
-    setFilmsList(filmsFiltered)
+    setSearchedFilms(filmsFiltered)
+  }
+  
+  function handleCheck(e){
+    const director = e.target.name;
+    const isChecked = e.target.checked;
+  
+    if (isChecked) {
+      setDirectorFilter([...directorFilter, director]);
+    } else {
+      setDirectorFilter(directorFilter.filter(name => name != director))
+    }
   }
 
   return(
@@ -36,16 +72,26 @@ function Films(){
         <p>Filter by: </p>
         <div>
           <p>Filters</p>
-          {filters.map((filter) => <FilterCard key={filter} option={filter}/>)}
+          <p>Director</p>
+          {directorsList?.map((director) => (
+            <label key={director}>
+              <input 
+                type="checkbox" 
+                name={director}
+                onChange={handleCheck}
+                checked={directorFilter.includes(director)}
+              />
+              {director}
+            </label>
+          ))}
+          {/* {filters.map((filter) => <FilterCard key={filter} option={filter}/>)} */}
         </div>
         <Search onSubmit={handleSearchSubmit}/>
       </div>
       <ul>
         {filmsError && <li>Try again...</li>}
         {filmsLoading && <li>Loading...</li>}
-        {filmsList.length == 0 & !isName ?
-          films?.map((film) => <FilmCard key={film.id} film={film}/>) : filmsList?.map((film) => <FilmCard key={film.id} film={film}/>)
-        }
+        {filteredFilms?.map((film) => <FilmCard key={film.id} film={film}/>)}
       </ul>
     </>
   )
