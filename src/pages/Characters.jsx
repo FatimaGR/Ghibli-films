@@ -23,7 +23,7 @@ function Characters(){
   return(
     <>
       <Navbar/>
-      <h3>Films</h3>
+      <h3>Characters</h3>
       <img src={charactersbanner} alt="characters banner" />
       <div>
         <p>Filter by: </p>

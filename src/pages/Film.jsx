@@ -1,20 +1,7 @@
 import { getFilms, getCharacters, getLocations, getFilmById } from "../services/services.js";
+import { gettingValues } from "../utils/utils.jsx";
 import { Link, useParams } from "react-router-dom";
-import { useState, useEffect } from 'react'
-
-function gettingValues(array, id, separation, newArray){
-  let name = ""
-  array.films.map((element) => {
-    const filmId = element.split("https://ghibliapi.vercel.app/films/")[1]
-    if (filmId === id) {
-      separation ? name = array?.name + separation : name = array?.name
-      return name 
-    } else {
-      newArray ? newArray.push(array) : ""
-    }
-  })
-  return name
-}
+import { useState } from 'react'
 
 function FilmPrueba() {
   const [cantLocations, setCantLocations] = useState(1)

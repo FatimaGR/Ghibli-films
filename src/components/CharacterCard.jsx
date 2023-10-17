@@ -1,10 +1,11 @@
 import { getFilms, getSpecies } from "../services/services.js";
+import { gettingValue } from "../utils/utils.jsx";
 
 function CharacterCard({character}){
   const { films } = getFilms()
   const { species } = getSpecies()
-  const specieId = character.species.split("https://ghibliapi.vercel.app/species/")[1]
-  const specie = species?.find((specie) => specie?.id === specieId)
+  const specieFilm = gettingValue(false, "species/", species, character.species)
+  const characterFilm = gettingValue(character?.films, "films/", films)
 
   return(
     <div key={character}>
@@ -28,17 +29,11 @@ function CharacterCard({character}){
         </li>
         <li>
           <p>Films</p>
-          <p>
-          {character?.films.map((filmCharacter) => {
-              const filmId = filmCharacter.split("https://ghibliapi.vercel.app/films/")[1]
-              const film = films?.find((film) => film?.id === filmId)
-              return(film?.title + ", ")
-          })}
-          </p>
+          <p>{characterFilm?.title + ", "}</p>
         </li>
         <li>
           <p>Species</p>
-          <p>{specie?.name}</p>
+          <p>{specieFilm?.name}</p>
         </li>
       </ul>
     </div>

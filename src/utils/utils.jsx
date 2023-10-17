@@ -60,6 +60,21 @@ export function gettingValues(array, id, separation, newArray){
   return name
 }
 
+export function gettingValue(mapList, endpoint, findList, toSearch) {
+  let findedElement = ""
+  if (!mapList) {
+    const elementId = toSearch.split("https://ghibliapi.vercel.app/" + endpoint)[1]
+    findedElement = findList?.find((element) => element?.id === elementId)
+    return(findedElement)
+  }
+  mapList?.map((element) => {
+    const elementId = element.split("https://ghibliapi.vercel.app/" + endpoint)[1]
+    findedElement = findList?.find((element) => element?.id === elementId)
+    return(findedElement)
+  })
+  return(findedElement)
+}
+
 export function filterByLocation(films, locations, filters){
   if (filters.length === 0) return films;
   return films.filter((film) => 

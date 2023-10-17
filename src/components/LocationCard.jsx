@@ -1,9 +1,12 @@
 import { getFilms, getCharacters } from "../services/services.js";
+import { gettingValue } from "../utils/utils.jsx";
 
 function LocationCard({location}){
   const { films } = getFilms()
   const { characters } = getCharacters()
   const residentsList = location?.residents
+  const locationFilm = gettingValue(location?.films, "films/", films)
+  const locationResident = gettingValue(residentsList, "people/", characters)
 
   return(
     <div key={location}>
@@ -23,23 +26,11 @@ function LocationCard({location}){
         </li>
         <li>
           <p>Films</p>
-          <p>
-          {location?.films.map((filmLocation) => {
-              const filmId = filmLocation.split("https://ghibliapi.vercel.app/films/")[1]
-              const film = films?.find((film) => film?.id === filmId)
-              return(film?.title + ", ")
-          })}
-          </p>
+          <p>{locationFilm?.title + ", "}</p>
         </li>
         {residentsList.includes("TODO") || residentsList.length > 0 && (<li>
           <p>Residents</p>
-          <p>
-          {residentsList.map((residentLocation) => {
-              const residentId = residentLocation.split("https://ghibliapi.vercel.app/people/")[1]
-              const resident = characters?.find((resident) => resident?.id === residentId)
-              return(resident?.name + ", ")
-          })}
-          </p>
+          <p>{locationResident?.name + ", "}</p>
         </li>)}
       </ul>
     </div>
