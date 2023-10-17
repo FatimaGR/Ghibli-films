@@ -2,13 +2,28 @@ import { getFilms, getCharacters, getLocations, getFilmById } from "../services/
 import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from 'react'
 
+function gettingValues(array, id, separation, newArray){
+  let name = ""
+  array.films.map((element) => {
+    const filmId = element.split("https://ghibliapi.vercel.app/films/")[1]
+    if (filmId === id) {
+      separation ? name = array?.name + separation : name = array?.name
+      return name 
+    } else {
+      newArray ? newArray.push(array) : ""
+    }
+  })
+  return name
+}
+
 function FilmPrueba() {
   const [cantLocations, setCantLocations] = useState(1)
-  let otherList = []
+  let notLocations = []
   let params = useParams();
   const { locations } = getLocations()
   const { characters } = getCharacters()
   const { film } = getFilmById(params.id)
+
 
   return (
     <div>
@@ -36,16 +51,7 @@ function FilmPrueba() {
           {!film?.people.includes("https://ghibliapi.vercel.app/people/") &&(
             <div>
               <p>Characters</p>
-              <p>
-              {characters?.map((character) => {
-                let name = ""
-                character.films.map((filmCharacter) => {
-                  const filmId = filmCharacter.split("https://ghibliapi.vercel.app/films/")[1]
-                  filmId === params.id ? name = character?.name + ", " : ""
-                })
-                return(name)
-              })}
-              </p>
+              <p> {characters?.map((character) => gettingValues(character, params.id, ", "))} </p>
             </div>
           )}
           {cantLocations > 0 &&(
@@ -53,12 +59,8 @@ function FilmPrueba() {
               <p>Locations</p>
               <p>
               {locations?.map((location) => {
-                let name = ""
-                location.films.map((filmLocation) => {
-                  const filmId = filmLocation.split("https://ghibliapi.vercel.app/films/")[1]
-                  filmId === params.id ? name = location?.name + ", " : otherList.push(location)
-                })
-                otherList.length === locations.length && setCantLocations(0)
+                const name = gettingValues(location, params.id, ", ", notLocations)
+                notLocations.length === locations.length && setCantLocations(0)
                 return name
               })}
               </p>

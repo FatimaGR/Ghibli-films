@@ -1,58 +1,60 @@
 import { useState } from "react"
-import { getFilms } from "../services/services.js"
+import { getFilms, getLocations } from "../services/services.js"
+import { gettingDirectors, gettingYears, initialFilms, filterFilms} from "../utils/utils.jsx"
 import Navbar from "../components/Navbar.jsx"
 import FilmCard from "../components/FilmCard.jsx"
 import Search from "../components/Search.jsx"
 import FilterCard from "../components/FilterCard.jsx"
 import filmsbanner from "../assets/films-banner.png"
 
-function addingDirectors(films){
-  let directors = []
-  films?.map((film) => {
-    if (!directors.includes(film.director)){
-        directors.push(film.director)
-      }
-  })
-  return directors
-}
-
-function initialFilms(films, filmsList, condition){
-  if (filmsList.length == 0 & !condition) return films;
-  return filmsList
-}
-
-function filterFilms(films, filters){
-  if (filters.length === 0) return films;
-  return films.filter(film => directorFilter.includes(film.director))
-}
-
 function Films(){
   const { films, filmsLoading, filmsError } = getFilms()
-  // const filters = ["locations", "release_date", "director"]
+  const { locations } = getLocations()
   const [searchedFilms, setSearchedFilms] = useState([])
   const [directorFilter, setDirectorFilter] = useState([])
+  const [yearFilter, setYearFilter] = useState([])
+  const [locationFilter, setLocationFilter] = useState([])
   const [isName, setIsName] = useState(false)
-  let nameUpper = ""
 
-  const directorsList = addingDirectors(films)
+  const directorsList = gettingDirectors(films)
+  const yearsList = gettingYears(films)
   const filmsList = initialFilms(films, searchedFilms, isName)
-  const filteredFilms = filterFilms(filmsList, directorFilter)
+  const filteredFilms = filterFilms(filmsList, directorFilter, yearFilter, locations, locationFilter)
 
   function handleSearchSubmit(name){
     setIsName(true)
-    nameUpper = name.toUpperCase()
+    const nameUpper = name.toUpperCase()
     const filmsFiltered = films.filter((film) => film.title.toUpperCase().includes(nameUpper))
     setSearchedFilms(filmsFiltered)
   }
   
-  function handleCheck(e){
+  function handleDirector(e){
     const director = e.target.name;
     const isChecked = e.target.checked;
-  
     if (isChecked) {
       setDirectorFilter([...directorFilter, director]);
     } else {
       setDirectorFilter(directorFilter.filter(name => name != director))
+    }
+  }
+
+  function handleYear(e){
+    const newYear = e.target.name;
+    const isChecked = e.target.checked;
+    if (isChecked) {
+      setYearFilter([...yearFilter, newYear]);
+    } else {
+      setYearFilter(yearFilter.filter(year => year != newYear))
+    }
+  }
+
+  function handleLocation(e){
+    const location = e.target.name;
+    const isChecked = e.target.checked;
+    if (isChecked) {
+      setLocationFilter([...locationFilter, location]);
+    } else {
+      setLocationFilter(locationFilter.filter(name => name != location))
     }
   }
 
@@ -78,13 +80,36 @@ function Films(){
               <input 
                 type="checkbox" 
                 name={director}
-                onChange={handleCheck}
+                onChange={handleDirector}
                 checked={directorFilter.includes(director)}
               />
               {director}
             </label>
           ))}
-          {/* {filters.map((filter) => <FilterCard key={filter} option={filter}/>)} */}
+          <br />
+          {yearsList?.map((year) => (
+              <label key={year}>
+                <input 
+                  type="checkbox" 
+                  name={year}
+                  onChange={handleYear}
+                  checked={yearFilter.includes(year)}
+                />
+              {year}
+              </label>
+          ))}
+          <br />
+          {locations?.map((location) => (
+            <label key={location.name}>
+              <input 
+                type="checkbox" 
+                name={location.name}
+                onChange={handleLocation}
+                checked={locationFilter.includes(location.name)}
+              />
+            {location.name}
+            </label>
+          ))}
         </div>
         <Search onSubmit={handleSearchSubmit}/>
       </div>
