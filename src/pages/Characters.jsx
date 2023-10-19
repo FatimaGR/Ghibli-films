@@ -69,43 +69,13 @@ function Characters(){
         <div>
           <p>Filters</p>
           <p>Films</p>
-          {films?.map((film) => (
-            <label key={film.title}>
-              <input 
-                type="checkbox" 
-                name={film.title}
-                onChange={handleFilm}
-                checked={filmFilter.includes(film.title)}
-              />
-              {film.title}
-            </label>
-          ))}
+          {films?.map(film => <FilterCard option={film.title} handle={handleFilm} filters={filmFilter}/>)}
           <br />
-          <p>Genders</p>
-          {gendersList?.map((gender) => (
-            <label key={gender}>
-              <input 
-                type="checkbox" 
-                name={gender}
-                onChange={handleGender}
-                checked={genderFilter.includes(gender)}
-              />
-              {gender}
-            </label>
-          ))}
+          <p>Gender</p>
+          {gendersList?.map(gender => <FilterCard option={gender} handle={handleGender} filters={genderFilter}/>)}
           <br />
-          <p>Species</p>
-          {species?.map((specie) => (
-            <label key={specie.name}>
-              <input 
-                type="checkbox" 
-                name={specie.name}
-                onChange={handleSpecie}
-                checked={specieFilter.includes(specie.name)}
-              />
-              {specie.name}
-            </label>
-          ))}
+          <p>Specie</p>
+          {species?.map(specie => <FilterCard option={specie.name} handle={handleSpecie} filters={specieFilter}/>)}
           <br />
         </div>
         <Search onSubmit={handleSearchSubmit}/>

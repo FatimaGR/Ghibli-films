@@ -57,7 +57,7 @@ export function gettingLocations(id, locations){
   let name = ""
   let locationsList = []
   locations?.map((location) => {
-    name = gettingValues(location, id)
+    name = gettingFilmValues(location, id)
     if (!locationsList.includes(name) & name != ""){
       locationsList.push(name)
     }
@@ -89,7 +89,7 @@ export function gettingId(toSeparate, endpoint){
   return id
 }
 
-export function gettingValues(list, id, separation, newList){
+export function gettingFilmValues(list, id, separation, newList){
   let name = ""
   list.films.map((element) => {
     const filmId = gettingId(element, "films/")

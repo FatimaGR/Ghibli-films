@@ -68,41 +68,13 @@ function Locations(){
         <div>
           <p>Filters</p>
           <p>Films</p>
-          {films?.map((film) => (
-            <label key={film.title}>
-              <input 
-                type="checkbox" 
-                name={film.title}
-                onChange={handleFilm}
-                checked={filmFilter.includes(film.title)}
-              />
-              {film.title}
-            </label>
-          ))}
+          {films?.map(film => <FilterCard option={film.title} handle={handleFilm} filters={filmFilter}/>)}
           <br />
-          {climatesList?.map((climate) => (
-            <label key={climate}>
-              <input 
-                type="checkbox" 
-                name={climate}
-                onChange={handleClimate}
-                checked={climateFilter.includes(climate)}
-              />
-              {climate}
-            </label>
-          ))}
+          <p>Climate</p>
+          {climatesList?.map(climate => <FilterCard option={climate} handle={handleClimate} filters={climateFilter}/>)}
           <br />
-          {terrainsList?.map((terrain) => (
-            <label key={terrain}>
-              <input 
-                type="checkbox" 
-                name={terrain}
-                onChange={handleTerrain}
-                checked={terrainFilter.includes(terrain)}
-              />
-              {terrain}
-            </label>
-          ))}
+          <p>Terrain</p>
+          {terrainsList?.map(terrain => <FilterCard option={terrain} handle={handleTerrain} filters={terrainFilter}/>)}
           <br />
         </div>
         <Search onSubmit={handleSearchSubmit}/>

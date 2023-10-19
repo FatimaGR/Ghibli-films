@@ -74,42 +74,14 @@ function Films(){
         <p>Filter by: </p>
         <div>
           <p>Filters</p>
+          <p>Locations</p>
+          {locations?.map(location => <FilterCard option={location.name} handle={handleLocation} filters={locationFilter}/>)}
+          <br />
+          <p>Release date</p>
+          {yearsList?.map(year => <FilterCard option={year} handle={handleYear} filters={yearFilter}/>)}
+          <br />
           <p>Director</p>
-          {directorsList?.map((director) => (
-            <label key={director}>
-              <input 
-                type="checkbox" 
-                name={director}
-                onChange={handleDirector}
-                checked={directorFilter.includes(director)}
-              />
-              {director}
-            </label>
-          ))}
-          <br />
-          {yearsList?.map((year) => (
-              <label key={year}>
-                <input 
-                  type="checkbox" 
-                  name={year}
-                  onChange={handleYear}
-                  checked={yearFilter.includes(year)}
-                />
-              {year}
-              </label>
-          ))}
-          <br />
-          {locations?.map((location) => (
-            <label key={location.name}>
-              <input 
-                type="checkbox" 
-                name={location.name}
-                onChange={handleLocation}
-                checked={locationFilter.includes(location.name)}
-              />
-            {location.name}
-            </label>
-          ))}
+          {directorsList?.map(director => <FilterCard option={director} handle={handleDirector} filters={directorFilter}/>)}
         </div>
         <Search onSubmit={handleSearchSubmit}/>
       </div>
