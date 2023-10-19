@@ -13,6 +13,26 @@ export function gettingDirectors(films){
   return directors
 }
 
+export function gettingClimate(locations){
+  let climates = []
+  locations?.map((location) => {
+    if (!climates.includes(location.climate)){
+      climates.push(location.climate)
+    }
+  })
+  return climates
+}
+
+export function gettingTerrains(locations){
+  let terrains = []
+  locations?.map((location) => {
+    if (!terrains.includes(location.terrain)){
+      terrains.push(location.terrain)
+    }
+  })
+  return terrains
+}
+
 export function gettingGender(characters){
   let genders = []
   characters?.map((character) => {
@@ -148,4 +168,22 @@ export function filterCharacters(characters, gender, films, film, specie, specie
   const charactersBySpecie = filterBySpecie(charactersByGender, specie, species)
 
   return charactersBySpecie
+}
+
+export function filterByClimate(locations, filters){
+  if (filters.length === 0) return locations;
+  return locations.filter(location => filters.includes(location.climate))
+}
+
+export function filterByTerrain(locations, filters){
+  if (filters.length === 0) return locations;
+  return locations.filter(location => filters.includes(location.terrain))
+}
+
+export function filterLocations(locations, films, film, climate, terrain){
+  const locationsByFilm = filterByFilms(locations, films, film);
+  const locationsByClimate = filterByClimate(locationsByFilm, climate);
+  const locationsByTerrain = filterByTerrain(locationsByClimate, terrain)
+
+  return locationsByTerrain
 }
