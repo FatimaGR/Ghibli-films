@@ -1,4 +1,4 @@
-import { getFilms, getCharacters, getLocations, getFilmById } from "../services/services.js";
+import { getCharacters, getLocations, getFilmById } from "../services/services.js";
 import { gettingValues } from "../utils/utils.jsx";
 import { Link, useParams } from "react-router-dom";
 import { useState } from 'react'
@@ -10,7 +10,6 @@ function FilmPrueba() {
   const { locations } = getLocations()
   const { characters } = getCharacters()
   const { film } = getFilmById(params.id)
-
 
   return (
     <div>

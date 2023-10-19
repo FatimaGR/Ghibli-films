@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { getFilms, getLocations } from "../services/services.js"
-import { gettingDirectors, gettingYears, initialFilms, filterFilms} from "../utils/utils.jsx"
+import { gettingDirectors, gettingYears, initialData, filterFilms } from "../utils/utils.jsx"
 import Navbar from "../components/Navbar.jsx"
 import FilmCard from "../components/FilmCard.jsx"
 import Search from "../components/Search.jsx"
@@ -18,7 +18,7 @@ function Films(){
 
   const directorsList = gettingDirectors(films)
   const yearsList = gettingYears(films)
-  const filmsList = initialFilms(films, searchedFilms, isName)
+  const filmsList = initialData(films, searchedFilms, isName)
   const filteredFilms = filterFilms(filmsList, directorFilter, yearFilter, locations, locationFilter)
 
   function handleSearchSubmit(name){
