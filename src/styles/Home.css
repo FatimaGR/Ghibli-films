@@ -1,0 +1,91 @@
+.home-containter{
+  height: 110vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("../assets/home-background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.home-content{
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  align-items: center;
+  max-width: 100%;
+}
+.home-description h1{
+  font-size: 64px;
+  font-family: 'Varela Round', sans-serif;
+  font-weight: 400;
+}
+.home-description{
+  max-height: 100%;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  max-width: 60%;
+  justify-content: space-around;
+}
+.home-description .description{
+  max-width: 75%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: start;
+}
+.home-description .description p{
+  max-width: 60%;
+}
+.home-button{
+  background-color: #fff;
+  text-align: center;
+  border: none;
+  box-sizing: border-box;
+  border-radius: 20px;
+  padding: 9px 27px;
+}
+.home-button a{
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 600;
+  color: #0047FF;
+  text-decoration: none;
+}
+.home-films{
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  max-width: 100%;
+  gap: 25px;
+  font-weight: 600;
+  letter-spacing: 10%;
+}
+.home-films .images{
+  height: 218px;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  box-sizing: border-box;
+
+}
+.home-films .images img{
+  max-height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+.home-spirit-away{
+  max-width: 18%;
+  color: #fff;
+  font-size: 15.5px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: start;
+}
+.home-spirit-away img{
+  width: 262px;
+  max-width: 100%;
+  border-radius: 15px;
+}
