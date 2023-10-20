@@ -6,13 +6,14 @@ import kiki from "../assets/home-kiki.jpeg"
 import movingCastle from "../assets/home-moving-castle.jpeg"
 import princessKaguya from "../assets/home-princess-kaguya.jpeg"
 import spiritAway from "../assets/home-spirit-away.jpeg"
+import arrow from "../assets/icon-arrow-right.svg"
 import "../styles/Home.css"
 
 function Home() {
 
   return (
     <div className='home-containter'>
-      <Navbar/>
+      <Navbar className={"home-navbar"}/>
       <div className="home-content">
         <div className='home-description'>
           <div className='description'>
@@ -23,7 +24,7 @@ function Home() {
             </button>
           </div>
           <div className='home-films'>
-            <p>Films -</p>
+            <Link to="/films">Films <img src={arrow} alt="arrow" /></Link>
             <div className='images'>
               <img src={totoro} alt="totoro" />
               <img src={kiki} alt="kiki" />

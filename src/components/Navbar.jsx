@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
 
-function Navbar() {
+function Navbar({ className }) {
 
   return (
-    <div>
-      <Link to="/">Home</Link>
-      <Link to="/films">Films</Link>
-      <Link to="/characters">Characters</Link>
-      <Link to="/locations">Locations</Link>
-    </div>
+    <ul className={className ? className : "navbar"}>
+      <li> <Link to="/">Home</Link> </li>
+      <li> <Link to="/films">Films</Link> </li>
+      <li> <Link to="/characters">Characters</Link> </li>
+      <li> <Link to="/locations">Locations</Link> </li>
+    </ul>
   )
 }
 
