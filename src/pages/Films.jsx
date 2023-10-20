@@ -6,6 +6,7 @@ import FilmCard from "../components/FilmCard.jsx"
 import Search from "../components/Search.jsx"
 import FilterCard from "../components/FilterCard.jsx"
 import filmsbanner from "../assets/films-banner.png"
+import "../styles/Films.css"
 
 function Films(){
   const { films, filmsLoading, filmsError } = getFilms()
@@ -59,38 +60,42 @@ function Films(){
   }
 
   return(
-    <>
+    <div className="films-container">
       <Navbar/>
-      <h3>Films</h3>
-      <div>
-        <img src={filmsbanner} alt="films banner" />
-        <div>
-          <h3>Howl's Moving Castle</h3>
-          <p>ハウルの動く城</p>
-          <p>When Sophie, a shy young woman, is cursed with an old body by a spiteful witch, her only chance of breaking the spell lies with a self-indulgent yet insecure young wizard and his companions in his legged, walking home.</p>
+      <div className="films-content">
+        <h2>Films</h2>
+        <div className="films-banner">
+          <img src={filmsbanner} alt="films banner" />
+          <div className="description">
+            <hr />
+            <h3>Howl's Moving Castle</h3>
+            <p className="romanji">ハウルの動く城</p>
+            <p className="romanji"></p>
+            <p>When Sophie, a shy young woman, is cursed with an old body by a spiteful witch, her only chance of breaking the spell lies with a self-indulgent yet insecure young wizard and his companions in his legged, walking home.</p>
+          </div>
         </div>
-      </div>
-      <div>
-        <p>Filter by: </p>
         <div>
-          <p>Filters</p>
-          <p>Locations</p>
-          {locations?.map(location => <FilterCard option={location.name} handle={handleLocation} filters={locationFilter}/>)}
-          <br />
-          <p>Release date</p>
-          {yearsList?.map(year => <FilterCard option={year} handle={handleYear} filters={yearFilter}/>)}
-          <br />
-          <p>Director</p>
-          {directorsList?.map(director => <FilterCard option={director} handle={handleDirector} filters={directorFilter}/>)}
+          <p>Filter by: </p>
+          <div>
+            <p>Filters</p>
+            <p>Locations</p>
+            {locations?.map(location => <FilterCard option={location.name} handle={handleLocation} filters={locationFilter}/>)}
+            <br />
+            <p>Release date</p>
+            {yearsList?.map(year => <FilterCard option={year} handle={handleYear} filters={yearFilter}/>)}
+            <br />
+            <p>Director</p>
+            {directorsList?.map(director => <FilterCard option={director} handle={handleDirector} filters={directorFilter}/>)}
+          </div>
+          <Search onSubmit={handleSearchSubmit}/>
         </div>
-        <Search onSubmit={handleSearchSubmit}/>
+        <ul>
+          {filmsError && <li>Try again...</li>}
+          {filmsLoading && <li>Loading...</li>}
+          {filteredFilms?.map((film) => <FilmCard key={film.id} film={film}/>)}
+        </ul>
       </div>
-      <ul>
-        {filmsError && <li>Try again...</li>}
-        {filmsLoading && <li>Loading...</li>}
-        {filteredFilms?.map((film) => <FilmCard key={film.id} film={film}/>)}
-      </ul>
-    </>
+    </div>
   )
 }
 

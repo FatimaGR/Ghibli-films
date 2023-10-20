@@ -60,32 +60,34 @@ function Characters(){
   }
 
   return(
-    <>
+    <div className='characters-container'>
       <Navbar/>
-      <h3>Characters</h3>
-      <img src={charactersbanner} alt="characters banner" />
-      <div>
-        <p>Filter by: </p>
+      <div className="characters-content">
+        <h2>Characters</h2>
+        <img className="characters-banner" src={charactersbanner} alt="characters banner" />
         <div>
-          <p>Filters</p>
-          <p>Films</p>
-          {films?.map(film => <FilterCard option={film.title} handle={handleFilm} filters={filmFilter}/>)}
-          <br />
-          <p>Gender</p>
-          {gendersList?.map(gender => <FilterCard option={gender} handle={handleGender} filters={genderFilter}/>)}
-          <br />
-          <p>Specie</p>
-          {species?.map(specie => <FilterCard option={specie.name} handle={handleSpecie} filters={specieFilter}/>)}
-          <br />
+          <p>Filter by: </p>
+          <div>
+            <p>Filters</p>
+            <p>Films</p>
+            {films?.map(film => <FilterCard option={film.title} handle={handleFilm} filters={filmFilter}/>)}
+            <br />
+            <p>Gender</p>
+            {gendersList?.map(gender => <FilterCard option={gender} handle={handleGender} filters={genderFilter}/>)}
+            <br />
+            <p>Specie</p>
+            {species?.map(specie => <FilterCard option={specie.name} handle={handleSpecie} filters={specieFilter}/>)}
+            <br />
+          </div>
+          <Search onSubmit={handleSearchSubmit}/>
         </div>
-        <Search onSubmit={handleSearchSubmit}/>
+        <ul>
+          {charactersError && <li>Try again...</li>}
+          {charactersLoading && <li>Loading...</li>}
+          {filteredCharacters?.map((character) => <CharacterCard key={character.id} character={character}/>)}
+        </ul>
       </div>
-      <ul>
-        {charactersError && <li>Try again...</li>}
-        {charactersLoading && <li>Loading...</li>}
-        {filteredCharacters?.map((character) => <CharacterCard key={character.id} character={character}/>)}
-      </ul>
-    </>
+    </div>
   )
 }
 

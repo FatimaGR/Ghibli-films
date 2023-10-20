@@ -1,0 +1,47 @@
+.films-content{
+  max-width: 75%;
+  margin: 7% 0;
+  position: relative;
+}
+.films-banner{
+  max-width: 100%;
+  height: 100%;
+  position: relative;
+  object-fit: cover;
+}
+.films-banner img{
+  max-width: 100%;
+}
+.films-banner .description{
+  max-width: 34%;
+  /* height: 372px; */
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #0047ff99;
+  color: #fff;
+  padding: 5%;
+  box-sizing: border-box;
+  font-size: 15.5px;
+  line-height: 1.2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.films-banner .description hr{
+  width: 58.2px;
+  height: 5px;
+  background-color: #fff;
+  border: none;
+}
+.films-banner .description h3{
+  font-family: 'Varela Round', sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+}
+.films-banner .description .romanji{
+  font-size: 12px;
+  font-weight: 400;
+}

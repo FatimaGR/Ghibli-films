@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react'
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar.jsx"
 import totoro from "../assets/home-totoro.jpeg"
@@ -13,7 +12,7 @@ function Home() {
 
   return (
     <div className='home-containter'>
-      <Navbar className={"home-navbar"}/>
+      <Navbar className={"home"}/>
       <div className="home-content">
         <div className='home-description'>
           <div className='description'>

@@ -59,32 +59,34 @@ function Locations(){
   }
 
   return(
-    <>
+    <div className='locations-container'>
       <Navbar/>
-      <h1>Locations</h1>
-      <img src={locationsbanner} alt="locations banner" />
-      <div>
-        <p>Filter by: </p>
+      <div className="characters-content">
+        <h2>Locations</h2>
+        <img className="locations-banner" src={locationsbanner} alt="locations banner" />
         <div>
-          <p>Filters</p>
-          <p>Films</p>
-          {films?.map(film => <FilterCard option={film.title} handle={handleFilm} filters={filmFilter}/>)}
-          <br />
-          <p>Climate</p>
-          {climatesList?.map(climate => <FilterCard option={climate} handle={handleClimate} filters={climateFilter}/>)}
-          <br />
-          <p>Terrain</p>
-          {terrainsList?.map(terrain => <FilterCard option={terrain} handle={handleTerrain} filters={terrainFilter}/>)}
-          <br />
+          <p>Filter by: </p>
+          <div>
+            <p>Filters</p>
+            <p>Films</p>
+            {films?.map(film => <FilterCard option={film.title} handle={handleFilm} filters={filmFilter}/>)}
+            <br />
+            <p>Climate</p>
+            {climatesList?.map(climate => <FilterCard option={climate} handle={handleClimate} filters={climateFilter}/>)}
+            <br />
+            <p>Terrain</p>
+            {terrainsList?.map(terrain => <FilterCard option={terrain} handle={handleTerrain} filters={terrainFilter}/>)}
+            <br />
+          </div>
+          <Search onSubmit={handleSearchSubmit}/>
         </div>
-        <Search onSubmit={handleSearchSubmit}/>
+        <ul>
+          {locationsError && <li>Try again...</li>}
+          {locationsLoading && <li>Loading...</li>}
+          {filteredLocations?.map((location) => <LocationCard key={location.id} location={location}/>)}
+        </ul>
       </div>
-      <ul>
-        {locationsError && <li>Try again...</li>}
-        {locationsLoading && <li>Loading...</li>}
-        {filteredLocations?.map((location) => <LocationCard key={location.id} location={location}/>)}
-      </ul>
-    </>
+    </div>
   )
 }
 
