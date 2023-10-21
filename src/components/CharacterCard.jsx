@@ -8,34 +8,26 @@ function CharacterCard({character}){
   const characterFilm = gettingValue(character?.films, "films/", films)
 
   return(
-    <div key={character}>
-      <p>{character.name}</p>
-      <ul>
-        <li>
-          <p>Gender</p>
-          <p>{character.gender}</p>
-        </li>
-        <li>
-          <p>Age</p>
-          <p>{character.age}</p>
-        </li>
-        <li>
-          <p>Eyes color</p>
-          <p>{character.eye_color}</p>
-        </li>
-        <li>
-          <p>Hair color</p>
-          <p>{character.hair_color}</p>
-        </li>
-        <li>
-          <p>Films</p>
-          <p>{characterFilm?.title + ", "}</p>
-        </li>
-        <li>
-          <p>Species</p>
-          <p>{specieFilm?.name}</p>
-        </li>
-      </ul>
+    <div key={character} className="character-card">
+      <p className="title">{character.name}</p>
+      <div className="character-list">
+        <div className="descriptions">
+          <p className="description">Gender</p>
+          <p className="description">Age</p>
+          <p className="description">Eyes color</p>
+          <p className="description">Hair color</p>
+          <p className="description">Films</p>
+          <p className="description">Species</p>
+        </div>
+        <div className="informations">
+          <p className="information">{character.gender}</p>
+          <p className="information">{character.age}</p>
+          <p className="information">{character.eye_color}</p>
+          <p className="information">{character.hair_color}</p>
+          <p className="information">{characterFilm?.title + ", "}</p>
+          <p className="information">{specieFilm?.name}</p>
+        </div>
+      </div>
     </div>
   )
 }

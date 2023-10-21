@@ -1,4 +1,5 @@
 import { useState } from "react"
+import search from "../assets/icon-search.svg"
 
 function Search({ onSubmit }){
   const [word, setWord] = useState("");
@@ -13,9 +14,9 @@ function Search({ onSubmit }){
   }
 
   return(
-    <form onSubmit={handleSubmit}>
-      <button action="submit">lupita</button>
-      <input type="text" value={word} id="search" onChange={handleWordChange}/>
+    <form onSubmit={handleSubmit} className="search-form">
+      <button action="submit"><img src={search} alt="" /></button>
+      <input type="text" value={word} id="search" onChange={handleWordChange} placeholder="Search..."/>
     </form>
   )
 }

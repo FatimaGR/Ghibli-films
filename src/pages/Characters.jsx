@@ -7,6 +7,7 @@ import CharacterCard from "../components/CharacterCard.jsx"
 import FilterCard from "../components/FilterCard.jsx"
 import charactersbanner from "../assets/characters-banner.png"
 import arrow from "../assets/icon-arrow-bottom.svg"
+import "../styles/Characters.css"
 
 function Characters(){
   const { characters, charactersError, charactersLoading } = getCharacters()
@@ -90,7 +91,7 @@ function Characters(){
           </div>
           <Search onSubmit={handleSearchSubmit}/>
         </div>
-        <ul>
+        <ul className="character-cards">
           {charactersError && <li>Try again...</li>}
           {charactersLoading && <li>Loading...</li>}
           {filteredCharacters?.map((character) => <CharacterCard key={character.id} character={character}/>)}

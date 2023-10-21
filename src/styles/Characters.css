@@ -1,0 +1,40 @@
+.character-cards{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+}
+.character-card{
+  width: 232px;
+  background-image: url("../assets/totoro-fondo.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: solid 1.7px #104ef5;
+  border-radius: 15px;
+  box-sizing: border-box;
+  padding: 15px 25px;
+}
+.character-card .title{
+  color: #104ef5;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.character-list{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.character-list .descriptions{
+  color: #104ef5;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: right;
+}
+.character-list .informations{
+  font-size: 14px;
+  font-weight: 600;
+}
