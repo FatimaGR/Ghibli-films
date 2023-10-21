@@ -7,6 +7,8 @@ import Search from "../components/Search.jsx"
 import FilterCard from "../components/FilterCard.jsx"
 import filmsbanner from "../assets/films-banner.png"
 import "../styles/Films.css"
+import arrow from "../assets/icon-arrow-bottom.svg"
+import Filters from "../components/Filters.jsx"
 
 function Films(){
   const { films, filmsLoading, filmsError } = getFilms()
@@ -74,22 +76,31 @@ function Films(){
             <p>When Sophie, a shy young woman, is cursed with an old body by a spiteful witch, her only chance of breaking the spell lies with a self-indulgent yet insecure young wizard and his companions in his legged, walking home.</p>
           </div>
         </div>
-        <div>
-          <p>Filter by: </p>
-          <div>
-            <p>Filters</p>
-            <p>Locations</p>
-            {locations?.map(location => <FilterCard option={location.name} handle={handleLocation} filters={locationFilter}/>)}
-            <br />
-            <p>Release date</p>
-            {yearsList?.map(year => <FilterCard option={year} handle={handleYear} filters={yearFilter}/>)}
-            <br />
-            <p>Director</p>
-            {directorsList?.map(director => <FilterCard option={director} handle={handleDirector} filters={directorFilter}/>)}
+        <div className="select-section">
+          <p className="filter-title">Filter by: </p>
+          <div className="filters-container">
+            <div className="filter-container">
+              <button className="filter-button">Locations <img src={arrow} alt="more" /></button>
+              <ul className="filter-list">
+              {locations?.map(location => <FilterCard option={location.name} handle={handleLocation} filters={locationFilter}/>)}
+              </ul>
+            </div>
+            <div className="filter-container">
+              <button className="filter-button">Release date <img src={arrow} alt="more" /></button>
+              <ul className="filter-list">
+                {yearsList?.map(year => <FilterCard option={year} handle={handleYear} filters={yearFilter}/>)}
+              </ul>
+            </div>
+            <div className="filter-container">
+              <button className="filter-button">Director <img src={arrow} alt="more" /></button>
+              <ul className="filter-list">
+                {directorsList?.map(director => <FilterCard option={director} handle={handleDirector} filters={directorFilter}/>)}
+              </ul>
+            </div>
           </div>
           <Search onSubmit={handleSearchSubmit}/>
         </div>
-        <ul>
+        <ul className="film-cards">
           {filmsError && <li>Try again...</li>}
           {filmsLoading && <li>Loading...</li>}
           {filteredFilms?.map((film) => <FilmCard key={film.id} film={film}/>)}

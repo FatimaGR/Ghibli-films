@@ -19,7 +19,7 @@
   position: absolute;
   top: 0;
   right: 0;
-  background-color: #0047ff99;
+  background-color: #104ef599;
   color: #fff;
   padding: 5%;
   box-sizing: border-box;
@@ -43,5 +43,28 @@
 }
 .films-banner .description .romanji{
   font-size: 12px;
+  font-weight: 400;
+}
+.film-cards{
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-between; */
+  gap: 28px;
+}
+.film-card{
+  max-width: 169px;
+}
+.film-card img{
+  max-width: 100%;
+  border-radius: 12px;
+}
+.film-card a{
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+  color: #104ef5;
+}
+.film-card h6{
+  font-size: 14px;
   font-weight: 400;
 }

@@ -6,6 +6,7 @@ import Search from "../components/Search.jsx"
 import CharacterCard from "../components/CharacterCard.jsx"
 import FilterCard from "../components/FilterCard.jsx"
 import charactersbanner from "../assets/characters-banner.png"
+import arrow from "../assets/icon-arrow-bottom.svg"
 
 function Characters(){
   const { characters, charactersError, charactersLoading } = getCharacters()
@@ -65,19 +66,27 @@ function Characters(){
       <div className="characters-content">
         <h2>Characters</h2>
         <img className="characters-banner" src={charactersbanner} alt="characters banner" />
-        <div>
-          <p>Filter by: </p>
-          <div>
-            <p>Filters</p>
-            <p>Films</p>
-            {films?.map(film => <FilterCard option={film.title} handle={handleFilm} filters={filmFilter}/>)}
-            <br />
-            <p>Gender</p>
-            {gendersList?.map(gender => <FilterCard option={gender} handle={handleGender} filters={genderFilter}/>)}
-            <br />
-            <p>Specie</p>
-            {species?.map(specie => <FilterCard option={specie.name} handle={handleSpecie} filters={specieFilter}/>)}
-            <br />
+        <div className="select-section">
+          <p className="filter-title">Filter by: </p>
+          <div className="filters-container">
+            <div className="filter-container">
+              <button className="filter-button">Films <img src={arrow} alt="more" /></button>
+              <ul className="filter-list">
+                {films?.map(film => <FilterCard option={film.title} handle={handleFilm} filters={filmFilter}/>)}
+              </ul>
+            </div>
+            <div className="filter-container">
+              <button className="filter-button">Gender <img src={arrow} alt="more" /></button>
+              <ul className="filter-list">
+                {gendersList?.map(gender => <FilterCard option={gender} handle={handleGender} filters={genderFilter}/>)}
+              </ul>
+            </div>
+            <div className="filter-container">
+              <button className="filter-button">Specie <img src={arrow} alt="more" /></button>
+              <ul className="filter-list">
+                {species?.map(specie => <FilterCard option={specie.name} handle={handleSpecie} filters={specieFilter}/>)}
+              </ul>
+            </div>
           </div>
           <Search onSubmit={handleSearchSubmit}/>
         </div>

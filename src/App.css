@@ -56,6 +56,9 @@
   max-width: 75%;
   margin: 7% 0;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 .films-banner,
 .characters-banner,
@@ -67,11 +70,82 @@
 h2{
   font-size: 28px;
   font-weight: 700;
-  color: #0047FF;
+  color: #104ef5;
   text-transform: uppercase;
   letter-spacing: 1.5px;
   position: absolute;
   left: -43px;
   writing-mode: vertical-lr;
   transform: rotate(180deg);
+}
+.filter-button{
+  background-color: #104ef5;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  padding: 9px 15px;
+  font-family: 'Urbanist', sans-serif;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.filters-container{
+  display: flex;
+  gap: 20px;
+}
+.filter-list{
+  width: 205px;
+  position: absolute;
+  list-style: none;
+  background-color: #ffffffcc;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  border-top: solid 3px #104df5cb;
+  top: 45px;
+  max-height: 350px;
+  overflow: auto;
+  display: none;
+}
+.filter-container{
+  position: relative;
+}
+.filter-card{
+  color: #104ef5;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+.filter-card label{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  max-width: 100%;
+  cursor: pointer;
+}
+.filter-card input{
+  appearance: none;
+  min-width: 20px;
+  min-height: 20px;
+  border: solid 1.7px #104ef5;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.filter-card input:checked{
+  background-image: url("./assets/icon-check.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.filter-title{
+  font-size: 24px;
+  font-weight: 700;
+  color: #104ef5;
+}
+.select-section{
+  display: flex;
+  justify-content: space-between;
 }
