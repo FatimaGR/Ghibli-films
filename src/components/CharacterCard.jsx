@@ -10,24 +10,32 @@ function CharacterCard({character}){
   return(
     <div key={character} className="character-card">
       <p className="title">{character.name}</p>
-      <div className="character-list">
-        <div className="descriptions">
+      <ul>
+        <li>
           <p className="description">Gender</p>
-          <p className="description">Age</p>
-          <p className="description">Eyes color</p>
-          <p className="description">Hair color</p>
-          <p className="description">Films</p>
-          <p className="description">Species</p>
-        </div>
-        <div className="informations">
           <p className="information">{character.gender}</p>
+        </li>
+        <li>
+          <p className="description">Age</p>
           <p className="information">{character.age}</p>
+        </li>
+        <li>
+          <p className="description">Eyes color</p>
           <p className="information">{character.eye_color}</p>
+        </li>
+        <li>
+          <p className="description">Hair color</p>
           <p className="information">{character.hair_color}</p>
+        </li>
+        <li>
+          <p className="description">Films</p>
           <p className="information">{characterFilm?.title + ", "}</p>
+        </li>
+        <li>
+          <p className="description">Species</p>
           <p className="information">{specieFilm?.name}</p>
-        </div>
-      </div>
+        </li>
+      </ul>
     </div>
   )
 }
