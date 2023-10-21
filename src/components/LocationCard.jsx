@@ -9,28 +9,28 @@ function LocationCard({location}){
   const locationResident = gettingValue(residentsList, "people/", characters)
 
   return(
-    <div key={location}>
-      <p>{location.name}</p>
+    <div key={location} className="location-card">
+      <p className="title">{location.name}</p>
       <ul>
         <li>
-          <p>Climate</p>
-          <p>{location.climate}</p>
+          <p className="description">Climate</p>
+          <p className="information">{location.climate}</p>
         </li>
         <li>
-          <p>Terrain</p>
-          <p>{location.terrain}</p>
+          <p className="description">Terrain</p>
+          <p className="information">{location.terrain}</p>
         </li>
         <li>
-          <p>Surface water</p>
-          <p>{location.surface_water}</p>
+          <p className="description">Surface water</p>
+          <p className="information">{location.surface_water}</p>
         </li>
         <li>
-          <p>Films</p>
-          <p>{locationFilm?.title + ", "}</p>
+          <p className="description films">Films</p>
+          <p className="information">{locationFilm?.title + ", "}</p>
         </li>
         {residentsList.includes("TODO") || residentsList.length > 0 && (<li>
-          <p>Residents</p>
-          <p>{locationResident?.name + ", "}</p>
+          <p className="description residents">Residents</p>
+          <p className="information">{locationResident?.name + ", "}</p>
         </li>)}
       </ul>
     </div>

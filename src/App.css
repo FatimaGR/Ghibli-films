@@ -67,7 +67,9 @@
   height: 100%;
   object-fit: cover;
 }
-h2{
+.films-content h2,
+.characters-content h2,
+.locations-content h2{
   font-size: 28px;
   font-weight: 700;
   color: #104ef5;
@@ -91,6 +93,7 @@ h2{
 }
 .filters-container{
   display: flex;
+  align-items: center;
   gap: 20px;
 }
 .filter-list{
@@ -172,4 +175,13 @@ h2{
   background: none;
   border: none;
   cursor: pointer;
+}
+
+.loading{
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: #104ef5;
+  list-style: none;
+  font-weight: 700;
 }

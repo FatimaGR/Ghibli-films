@@ -2,6 +2,8 @@ import { getCharacters, getLocations, getFilmById } from "../services/services.j
 import { gettingFilmValues } from "../utils/utils.jsx";
 import { Link, useParams } from "react-router-dom";
 import { useState } from 'react'
+import arrow from "../assets/icon-arrow-left.svg"
+import "../styles/Film.css"
 
 function FilmPrueba() {
   const [cantLocations, setCantLocations] = useState(1)
@@ -12,15 +14,19 @@ function FilmPrueba() {
   const { film } = getFilmById(params.id)
 
   return (
-    <div>
-      <Link to="/films">Back</Link>
-      <div>
-        <img src={film?.movie_banner} alt={film?.title} />
-        <div>
-          <p>{film?.original_title_romanised}</p>
-          <h1>{film?.title}</h1>
-          <hr />
-          <p>{film?.original_title}</p>
+    <div className="film-container">
+      <div className="film-header">
+        <Link to="/films" className="back-button"><img src={arrow} alt="back" /> Back</Link>
+        <div className="banner">
+          <img src={film?.movie_banner} alt={film?.title} />
+          <div className="titles">
+            <p className="romanised">{film?.original_title_romanised}</p>
+            <h1 className="english">{film?.title}</h1>
+            <div>
+              <hr />
+              <p className="original">{film?.original_title}</p>
+            </div>
+          </div>
         </div>
       </div>
       <div>

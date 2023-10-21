@@ -7,6 +7,7 @@ import Search from "../components/Search.jsx"
 import LocationCard from "../components/LocationCard.jsx"
 import { initialData, gettingClimate, gettingTerrains, filterLocations } from "../utils/utils.jsx";
 import arrow from "../assets/icon-arrow-bottom.svg"
+import "../styles/Locations.css"
 
 function Locations(){
   const { locations, locationsError, locationsLoading } = getLocations()
@@ -66,8 +67,8 @@ function Locations(){
         <h2>Locations</h2>
         <img className="locations-banner" src={locationsbanner} alt="locations banner" />
         <div className="select-section">
-          <p className="filter-title">Filter by: </p>
           <div className="filters-container">
+            <p className="filter-title">Filter by: </p>
             <div className="filter-container">
               <button className="filter-button">Films <img src={arrow} alt="more" /></button>
               <ul className="filter-list">
@@ -89,9 +90,9 @@ function Locations(){
           </div>
           <Search onSubmit={handleSearchSubmit}/>
         </div>
-        <ul>
+        <ul className="location-cards">
           {locationsError && <li>Try again...</li>}
-          {locationsLoading && <li>Loading...</li>}
+          {locationsLoading && <li className="loading">Loading...</li>}
           {filteredLocations?.map((location) => <LocationCard key={location.id} location={location}/>)}
         </ul>
       </div>

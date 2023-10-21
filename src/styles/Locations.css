@@ -1,45 +1,48 @@
-.character-cards{
+.location-cards{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 25px 10px;
 }
-.character-card{
+.location-card{
   height: fit-content;
-  width: 232px;
-  background-image: url("../assets/totoro-characters.png");
+  width: 306px;
+  background-image: url("../assets/totoro-locations.png");
   background-repeat: no-repeat;
   background-size: cover;
   border: solid 1.7px #104ef5;
   border-radius: 15px;
   box-sizing: border-box;
-  padding: 15px 25px;
+  padding: 25px;
 }
-.character-card .title{
+.location-card .title{
   color: #104ef5;
   font-size: 20px;
   font-weight: 600;
-  text-align: center;
   margin-bottom: 15px;
 }
-.character-card ul{
+.location-card ul{
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 10px;
   list-style: none;
 }
-.character-card li{
+.location-card li{
   display: flex;
   gap: 8px;
 }
-.character-card .description{
+.location-card .description{
   color: #104ef5;
   font-size: 14px;
   text-transform: uppercase;
   font-weight: 700;
 }
-.character-card .information{
+.location-card .information{
   font-size: 14px;
   font-weight: 600;
+}
+.location-card .information .films,
+.location-card .information .residents{
+  font-size: 12px;
 }

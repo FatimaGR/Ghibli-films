@@ -8,7 +8,6 @@ import FilterCard from "../components/FilterCard.jsx"
 import filmsbanner from "../assets/films-banner.png"
 import "../styles/Films.css"
 import arrow from "../assets/icon-arrow-bottom.svg"
-import Filters from "../components/Filters.jsx"
 
 function Films(){
   const { films, filmsLoading, filmsError } = getFilms()
@@ -77,8 +76,8 @@ function Films(){
           </div>
         </div>
         <div className="select-section">
-          <p className="filter-title">Filter by: </p>
           <div className="filters-container">
+            <p className="filter-title">Filter by: </p>
             <div className="filter-container">
               <button className="filter-button">Locations <img src={arrow} alt="more" /></button>
               <ul className="filter-list">
@@ -102,7 +101,7 @@ function Films(){
         </div>
         <ul className="film-cards">
           {filmsError && <li>Try again...</li>}
-          {filmsLoading && <li>Loading...</li>}
+          {filmsLoading && <li className="loading">Loading...</li>}
           {filteredFilms?.map((film) => <FilmCard key={film.id} film={film}/>)}
         </ul>
       </div>

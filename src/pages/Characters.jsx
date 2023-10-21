@@ -68,8 +68,8 @@ function Characters(){
         <h2>Characters</h2>
         <img className="characters-banner" src={charactersbanner} alt="characters banner" />
         <div className="select-section">
-          <p className="filter-title">Filter by: </p>
           <div className="filters-container">
+            <p className="filter-title">Filter by: </p>
             <div className="filter-container">
               <button className="filter-button">Films <img src={arrow} alt="more" /></button>
               <ul className="filter-list">
@@ -93,7 +93,7 @@ function Characters(){
         </div>
         <ul className="character-cards">
           {charactersError && <li>Try again...</li>}
-          {charactersLoading && <li>Loading...</li>}
+          {charactersLoading && <li className="loading">Loading...</li>}
           {filteredCharacters?.map((character) => <CharacterCard key={character.id} character={character}/>)}
         </ul>
       </div>

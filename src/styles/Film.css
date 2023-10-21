@@ -1,0 +1,68 @@
+.film-header{
+  width: 100%;
+  background-image: url("../assets/film-background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 20px;
+  padding-bottom: 0;
+  box-sizing: border-box;
+}
+.film-header .back-button{
+  font-size: 14px;
+  color: #104ef5;
+  border: none;
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 7px 12px;
+  text-decoration: none;
+  font-weight: 700;
+}
+.film-header .banner img{
+  min-width: 700px;
+  max-width: 64%;
+}
+.film-header .banner{
+  position: relative;
+  width: 95%;
+  display: flex;
+}
+.film-header .titles{
+  max-width: 440px;
+  position: absolute;
+  left: 60%;
+  top: 35px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.film-header .titles .romanised{
+  font-size: 16px;
+  font-style: italic;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.film-header .titles .english{
+  font-family: 'Cinzel', serif;
+  letter-spacing: 2.35px;
+  font-size: 50px;
+}
+.film-header .titles div{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.film-header .titles hr{
+  background-color: #fff;
+  height: 13px;
+  width: 94px;
+  border: none;
+}
+.film-header .titles .original{
+  font-size: 26px;
+  font-weight: lighter;
+  letter-spacing: 2.5px;
+}
