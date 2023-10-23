@@ -1,8 +1,5 @@
-.home-containter{
+.home-container{
   height: 110vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   background-image: url("../assets/home-background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -11,7 +8,6 @@
 .home-content{
   height: 80%;
   max-width: 100%;
-  display: flex;
   justify-content: center;
   align-items: center;
   gap: 7%;
@@ -25,14 +21,12 @@
   max-height: 100%;
   max-width: 55%;
   color: #fff;
-  display: flex;
   flex-direction: column;
   align-items: start;
   justify-content: space-around;
 }
 .home-description .description{
   max-width: 75%;
-  display: flex;
   flex-direction: column;
   align-items: start;
   gap: 20px;
@@ -53,11 +47,9 @@
   text-transform: uppercase;
   color: #104ef5;
   font-weight: 500;
-  text-decoration: none;
 }
 .home-films{
   max-width: 100%;
-  display: flex;
   flex-direction: column;
   align-items: end;
   gap: 25px;
@@ -66,14 +58,11 @@
 }
 .home-films a{
   color: #fff;
-  text-decoration: none;
 }
 .home-films .images{
   max-width: 100%;
-  display: flex;
   justify-content: space-between;
   box-sizing: border-box;
-
 }
 .home-films .images img{
   max-width: 20%;
@@ -84,7 +73,6 @@
   max-width: 20%;
   color: #fff;
   font-size: 15.5px;
-  display: flex;
   flex-direction: column;
   gap: 15px;
   align-items: start;

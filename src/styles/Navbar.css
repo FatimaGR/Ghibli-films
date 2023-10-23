@@ -1,0 +1,29 @@
+.navbar{
+  width: 100%;
+  display: flex; 
+  justify-content: center;
+  gap: 4%;
+  list-style: none;
+  font-size: 19px;
+  text-transform: uppercase;
+  margin: 30px 0;
+}
+.navbar a{
+  color: #fff;
+  font-weight: 500;
+}
+.navbar li{
+  padding: 10px;
+  cursor: pointer;
+}
+.navbar li:hover{
+  border-bottom: 3.5px solid #fff;
+}
+.navbar-no-home{
+  background-image: url("../assets/home-background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+  padding: 35px 0;
+  max-width: 100%;
+}

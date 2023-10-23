@@ -79,7 +79,7 @@ function Films(){
         <h2>Films</h2>
         <div className="films-banner">
           <img src={filmsbanner} alt="films banner" />
-          <div className="description">
+          <div className="description flex">
             <hr />
             <h3>Howl's Moving Castle</h3>
             <p className="romanji">ハウルの動く城</p>
@@ -111,7 +111,7 @@ function Films(){
           </div>
           <Search onSubmit={handleSearchSubmit}/>
         </div>
-        <ul className="film-cards">
+        <ul className="film-cards flex">
           {filmsError && <li>Try again...</li>}
           {filmsLoading && <li className="loading">Loading...</li>}
           {filteredFilms?.map((film) => <FilmCard key={film.id} film={film}/>)}

@@ -1,5 +1,4 @@
 .character-cards{
-  display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 25px 10px;

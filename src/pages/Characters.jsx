@@ -102,7 +102,7 @@ function Characters(){
           </div>
           <Search onSubmit={handleSearchSubmit}/>
         </div>
-        <ul className="character-cards">
+        <ul className="character-cards flex">
           {charactersError && <li>Try again...</li>}
           {charactersLoading && <li className="loading">Loading...</li>}
           {filteredCharacters?.map((character) => <CharacterCard key={character.id} character={character}/>)}

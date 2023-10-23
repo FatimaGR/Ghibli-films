@@ -1,51 +1,13 @@
 /* link styles */
-/* a{
-  font-size: 19px;
-  color: #FFF;
-  font-weight: 600;
+a{
   text-decoration: none;
 }
-.home-button a{
-  font-size: 16px;
-  color: #0047FF;
-  font-weight: 700;
-  text-transform: capitalize;
-} */
-/* paragraphs styles */
-.navbar{
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  gap: 4%;
-  list-style: none;
-  font-size: 19px;
-  text-transform: uppercase;
-  margin: 30px 0;
-}
-.navbar a{
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
-}
-.navbar li{
-  padding: 10px;
-  cursor: pointer;
-}
-.navbar li:hover{
-  border-bottom: 3.5px solid #fff;
-}
-.navbar-no-home{
-  background-image: url("./assets/home-background.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  margin: 0;
-  padding: 35px 0;
-  max-width: 100%;
-}
-/* containers */
+/* pages general styles */
+.home-container,
 .films-container,
 .characters-container,
-.locations-container{
+.locations-container,
+.film-container{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -80,6 +42,7 @@
   writing-mode: vertical-lr;
   transform: rotate(180deg);
 }
+/* filters styles */
 .filter-button{
   background-color: #104ef5;
   color: #fff;
@@ -111,7 +74,6 @@
   top: 45px;
   max-height: 350px;
   overflow: auto;
-  /* display: none; */
 }
 .filter-container{
   position: relative;
@@ -152,31 +114,7 @@
   display: flex;
   justify-content: space-between;
 }
-.search-form{
-  border: solid 1.7px #104ef5;
-  border-radius: 20px;
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  box-sizing: border-box;
-}
-.search-form input{
-  border: none;
-  background: none;
-  font-size: 16px;
-  outline: none;
-  max-width: 60%;
-}
-.search-form input::placeholder{
-  color: #104ef5e6;
-  font-weight: 700;
-}
-.search-form button{
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
+/* utils */
 .loading{
   width: 100%;
   height: 100%;
@@ -184,6 +122,9 @@
   color: #104ef5;
   list-style: none;
   font-weight: 700;
+}
+.flex{
+  display: flex;
 }
 .none{
   display: none;

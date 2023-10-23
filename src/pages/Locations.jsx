@@ -102,7 +102,7 @@ function Locations(){
           </div>
           <Search onSubmit={handleSearchSubmit}/>
         </div>
-        <ul className="location-cards">
+        <ul className="location-cards flex">
           {locationsError && <li>Try again...</li>}
           {locationsLoading && <li className="loading">Loading...</li>}
           {filteredLocations?.map((location) => <LocationCard key={location.id} location={location}/>)}

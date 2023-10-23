@@ -1,5 +1,6 @@
 import { useState } from "react"
 import search from "../assets/icon-search.svg"
+import "../styles/Search.css"
 
 function Search({ onSubmit }){
   const [word, setWord] = useState("");

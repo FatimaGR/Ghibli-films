@@ -1,8 +1,3 @@
-.films-content{
-  max-width: 75%;
-  margin: 7% 0;
-  position: relative;
-}
 .films-banner{
   max-width: 100%;
   height: 100%;
@@ -25,7 +20,6 @@
   box-sizing: border-box;
   font-size: 15.5px;
   line-height: 1.2;
-  display: flex;
   flex-direction: column;
   justify-content: space-around;
 }
@@ -46,7 +40,6 @@
   font-weight: 400;
 }
 .film-cards{
-  display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 28px;
@@ -59,7 +52,6 @@
   border-radius: 12px;
 }
 .film-card a{
-  text-decoration: none;
   font-size: 18px;
   font-weight: 600;
   color: #104ef5;
