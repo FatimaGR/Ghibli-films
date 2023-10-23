@@ -32,7 +32,7 @@ function Home() {
             </div>
           </div>
         </div>
-        <div className="home-spirit-away flex">
+        <div className="home-spirit-away">
           <img src={spiritAway} alt="spirit away" />
           <p>Spirited Away is an Oscar winning Japanese animated film about a ten year old girl who wanders away from her parents along a path that leads to a world ruled by strange and unusual monster-like animals.</p>
           <button className="home-button">

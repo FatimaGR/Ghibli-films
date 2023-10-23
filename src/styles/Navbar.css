@@ -4,7 +4,7 @@
   justify-content: center;
   gap: 4%;
   list-style: none;
-  font-size: 19px;
+  font-size: 0.95em;
   text-transform: uppercase;
   margin: 30px 0;
 }
@@ -26,4 +26,9 @@
   margin: 0;
   padding: 35px 0;
   max-width: 100%;
+}
+@media (max-width: 400px) {
+  .navbar{
+    font-size: 0.85em;
+  }
 }

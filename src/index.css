@@ -8,3 +8,18 @@ body{
   font-family: 'Urbanist', sans-serif;
   font-size: 20px;
 }
+@media (max-width: 1000px) {
+  body{
+    font-size: 16px;
+  }
+}
+@media (max-width: 800px) {
+  body{
+    font-size: 14px;
+  }
+}
+@media (max-width: 400px) {
+  body{
+    font-size: 13.5px;
+  }
+}

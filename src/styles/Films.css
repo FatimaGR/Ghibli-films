@@ -6,6 +6,7 @@
 }
 .films-banner img{
   max-width: 100%;
+  object-fit: cover;
 }
 .films-banner .description{
   max-width: 34%;
@@ -18,10 +19,12 @@
   color: #fff;
   padding: 5%;
   box-sizing: border-box;
-  font-size: 15.5px;
   line-height: 1.2;
   flex-direction: column;
   justify-content: space-around;
+}
+.films-banner .description p{
+  font-size: 0.775em;
 }
 .films-banner .description hr{
   width: 58.2px;
@@ -31,12 +34,12 @@
 }
 .films-banner .description h3{
   font-family: 'Varela Round', sans-serif;
-  font-size: 28px;
+  font-size: 1.4em;
   font-weight: 400;
   letter-spacing: 1.5px;
 }
 .films-banner .description .romanji{
-  font-size: 12px;
+  font-size: 0.6em;
   font-weight: 400;
 }
 .film-cards{
@@ -52,11 +55,37 @@
   border-radius: 12px;
 }
 .film-card a{
-  font-size: 18px;
+  font-size: 0.9em;
   font-weight: 600;
   color: #104ef5;
 }
 .film-card h6{
-  font-size: 14px;
+  font-size: 0.7em;
   font-weight: 400;
+}
+@media (max-width: 800px) {
+  .films-banner .description p{
+    font-size: 0.714em;
+  }
+  .films-banner .description h3{
+    font-size: 1em;
+  }
+  .film-card{
+    max-width: 130px;
+  }
+}
+@media (max-width: 700px) {
+  .films-banner .description{
+    top: auto;
+    left: 0;
+    bottom: 0;
+    max-width: 100%;
+    max-height: 55%;
+  }
+  .films-banner img{
+    height: 280px;
+  }
+  .film-cards{
+    justify-content: space-around;
+  }
 }

@@ -32,7 +32,7 @@ a{
 .films-content h2,
 .characters-content h2,
 .locations-content h2{
-  font-size: 28px;
+  font-size: 1.4em;
   font-weight: 700;
   color: #104ef5;
   text-transform: uppercase;
@@ -48,7 +48,7 @@ a{
   color: #fff;
   border: none;
   border-radius: 20px;
-  font-size: 16px;
+  font-size: 0.8em;
   padding: 9px 15px;
   font-family: 'Urbanist', sans-serif;
   box-sizing: border-box;
@@ -58,6 +58,7 @@ a{
   display: flex;
   align-items: center;
   gap: 20px;
+  flex-wrap: wrap;
 }
 .filter-list{
   width: 205px;
@@ -81,7 +82,7 @@ a{
 .filter-card{
   color: #104ef5;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 0.8em;
   letter-spacing: 0.5px;
 }
 .filter-card label{
@@ -106,7 +107,7 @@ a{
   background-size: cover;
 }
 .filter-title{
-  font-size: 24px;
+  font-size: 1.2em;
   font-weight: 700;
   color: #104ef5;
 }
@@ -128,4 +129,24 @@ a{
 }
 .none{
   display: none;
+}
+
+@media (max-width: 700px) {
+  .characters-banner,
+  .locations-banner{
+    height: 280px;
+  }
+  .films-content h2,
+  .characters-content h2,
+  .locations-content h2{
+    left: -26px;
+  }
+  .select-section{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .filter-list{
+    max-width: 125px;
+  }
 }

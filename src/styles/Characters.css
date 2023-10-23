@@ -16,7 +16,7 @@
 }
 .character-card .title{
   color: #104ef5;
-  font-size: 20px;
+  font-size: 1em;
   font-weight: 600;
   text-align: center;
   margin-bottom: 15px;
@@ -34,11 +34,21 @@
 }
 .character-card .description{
   color: #104ef5;
-  font-size: 14px;
+  font-size: 0.7em;
   text-transform: uppercase;
   font-weight: 700;
 }
 .character-card .information{
-  font-size: 14px;
+  font-size: 0.7em;
   font-weight: 600;
+}
+@media (max-width: 800px) {
+  .character-card{
+    width: 180px;
+  }
+}
+@media (max-width: 700px){
+  .character-cards{
+    justify-content: space-around;
+  }
 }

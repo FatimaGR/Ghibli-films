@@ -1,4 +1,5 @@
 .search-form{
+  min-height: 32px;
   border: solid 1.7px #104ef5;
   border-radius: 20px;
   display: flex;
@@ -9,7 +10,7 @@
 .search-form input{
   border: none;
   background: none;
-  font-size: 16px;
+  font-size: 0.8em;
   outline: none;
   max-width: 60%;
 }
