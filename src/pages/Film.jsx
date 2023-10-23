@@ -7,11 +7,13 @@ import "../styles/Film.css"
 
 function FilmPrueba() {
   const [cantLocations, setCantLocations] = useState(1)
+  const [cantCharacters, setCantCharacters] = useState(1)
   let notLocations = []
+  let notCharacters = []
   let params = useParams();
   const { locations } = getLocations()
   const { characters } = getCharacters()
-  const { film } = getFilmById(params.id)
+  const { film, filmLoading } = getFilmById(params.id)
 
   return (
     <div className="film-container">
@@ -29,11 +31,12 @@ function FilmPrueba() {
           </div>
         </div>
       </div>
+      {filmLoading && <li className="loading">Loading...</li>}
       <div className="film-information">
         <div className="film-description">
           <h2>{film?.title}</h2>
           {/* <br /> */}
-          <p>{film?.description}</p>
+          <p className="description">{film?.description}</p>
           <div className="film-data">
             <p className="film-button">Duration: {film?.running_time} min</p>
             <p className="film-button">Release date: {film?.release_date}</p>
@@ -44,10 +47,16 @@ function FilmPrueba() {
             <p>Director: {film?.director}</p>
             <p>Producer: {film?.producer}</p>
           </div>
-          {!film?.people.includes("https://ghibliapi.vercel.app/people/") &&(
+          {cantCharacters > 0 &&(
             <div className="extra-information">
               <h3>Characters</h3>
-              <p> {characters?.map((character) => gettingFilmValues(character, params.id, ", "))} </p>
+              <p>
+              {characters?.map((character) => {
+                const name = gettingFilmValues(character, params.id, ", ", notCharacters)
+                notCharacters.length === characters.length && setCantCharacters(0)
+                return name
+              })}
+              </p>
             </div>
           )}
           {cantLocations > 0 &&(
