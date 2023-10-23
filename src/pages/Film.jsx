@@ -29,26 +29,30 @@ function FilmPrueba() {
           </div>
         </div>
       </div>
-      <div>
-        <div>
+      <div className="film-information">
+        <div className="film-description">
           <h2>{film?.title}</h2>
+          {/* <br /> */}
           <p>{film?.description}</p>
-          <div>
-            <p>Duration: {film?.running_time}</p>
-            <p>Release date: {film?.release_date}</p>
-            <p>{film?.rt_score}</p>
+          <div className="film-data">
+            <p className="film-button">Duration: {film?.running_time} min</p>
+            <p className="film-button">Release date: {film?.release_date}</p>
+            <hr />
+            <p className="film-score">{film?.rt_score}%</p>
           </div>
-          <p>{film?.director}</p>
-          <p>{film?.producer}</p>
+          <div className="film-creators">
+            <p>Director: {film?.director}</p>
+            <p>Producer: {film?.producer}</p>
+          </div>
           {!film?.people.includes("https://ghibliapi.vercel.app/people/") &&(
-            <div>
-              <p>Characters</p>
+            <div className="extra-information">
+              <h3>Characters</h3>
               <p> {characters?.map((character) => gettingFilmValues(character, params.id, ", "))} </p>
             </div>
           )}
           {cantLocations > 0 &&(
-            <div>
-              <p>Locations</p>
+            <div className="extra-information">
+              <h3>Locations</h3>
               <p>
               {locations?.map((location) => {
                 const name = gettingFilmValues(location, params.id, ", ", notLocations)
