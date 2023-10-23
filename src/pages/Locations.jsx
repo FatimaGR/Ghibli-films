@@ -18,6 +18,10 @@ function Locations(){
   const [terrainFilter, setTerrainFilter] = useState([])
   const [isName, setIsName] = useState(false)
 
+  const [filmToggle, setFilmToggle] = useState(false)
+  const [climateToggle, setClimateToggle] = useState(false)
+  const [terrainToggle, setTerrainToggle] = useState(false)
+
   const climatesList = gettingClimate(locations)
   const terrainsList = gettingTerrains(locations)
   const locationList = initialData(locations, searchedLocations, isName);
@@ -39,7 +43,6 @@ function Locations(){
       setFilmFilter(filmFilter.filter((name) => name !== film));
     }
   }
-
   function handleClimate(e){
     const climate = e.target.name;
     const isChecked = e.target.checked;
@@ -49,7 +52,6 @@ function Locations(){
       setClimateFilter(climateFilter.filter((name) => name !== climate));
     }
   }
-
   function handleTerrain(e){
     const terrain = e.target.name;
     const isChecked = e.target.checked;
@@ -58,6 +60,16 @@ function Locations(){
     } else {
       setTerrainFilter(terrainFilter.filter((name) => name !== terrain));
     }
+  }
+
+  function handleFilmToggle(){
+    setFilmToggle(!filmToggle)
+  }
+  function handleClimateToggle(){
+    setClimateToggle(!climateToggle)
+  }
+  function handleTerrainToggle(){
+    setTerrainToggle(!terrainToggle)
   }
 
   return(
@@ -70,20 +82,20 @@ function Locations(){
           <div className="filters-container">
             <p className="filter-title">Filter by: </p>
             <div className="filter-container">
-              <button className="filter-button">Films <img src={arrow} alt="more" /></button>
-              <ul className="filter-list">
+              <button className="filter-button" onClick={handleFilmToggle}>Films <img src={arrow} alt="more" /></button>
+              <ul className={filmToggle ? "filter-list" : "none"}>
                 {films?.map(film => <FilterCard option={film.title} handle={handleFilm} filters={filmFilter}/>)}
               </ul>
             </div>
             <div className="filter-container">
-              <button className="filter-button">Climate <img src={arrow} alt="more" /></button>
-              <ul className="filter-list">
+              <button className="filter-button" onClick={handleClimateToggle}>Climate <img src={arrow} alt="more" /></button>
+              <ul className={climateToggle ? "filter-list" : "none"}>
                 {climatesList?.map(climate => <FilterCard option={climate} handle={handleClimate} filters={climateFilter}/>)}
               </ul>
             </div>
             <div className="filter-container">
-              <button className="filter-button">Terrain <img src={arrow} alt="more" /></button>
-              <ul className="filter-list">
+              <button className="filter-button" onClick={handleTerrainToggle}>Terrain <img src={arrow} alt="more" /></button>
+              <ul className={terrainToggle ? "filter-list" : "none"}>
                 {terrainsList?.map(terrain => <FilterCard option={terrain} handle={handleTerrain} filters={terrainFilter}/>)}
               </ul>
             </div>

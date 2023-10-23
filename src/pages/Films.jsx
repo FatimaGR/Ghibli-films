@@ -6,8 +6,8 @@ import FilmCard from "../components/FilmCard.jsx"
 import Search from "../components/Search.jsx"
 import FilterCard from "../components/FilterCard.jsx"
 import filmsbanner from "../assets/films-banner.png"
-import "../styles/Films.css"
 import arrow from "../assets/icon-arrow-bottom.svg"
+import "../styles/Films.css"
 
 function Films(){
   const { films, filmsLoading, filmsError } = getFilms()
@@ -17,6 +17,10 @@ function Films(){
   const [yearFilter, setYearFilter] = useState([])
   const [locationFilter, setLocationFilter] = useState([])
   const [isName, setIsName] = useState(false)
+  
+  const [locationToggle, setLocationToggle] = useState(false)
+  const [yearToggle, setYearToggle] = useState(false)
+  const [directorToggle, setDirectorToggle] = useState(false)
 
   const directorsList = gettingDirectors(films)
   const yearsList = gettingYears(films)
@@ -39,7 +43,6 @@ function Films(){
       setDirectorFilter(directorFilter.filter(name => name != director))
     }
   }
-
   function handleYear(e){
     const newYear = e.target.name;
     const isChecked = e.target.checked;
@@ -49,7 +52,6 @@ function Films(){
       setYearFilter(yearFilter.filter(year => year != newYear))
     }
   }
-
   function handleLocation(e){
     const location = e.target.name;
     const isChecked = e.target.checked;
@@ -58,6 +60,16 @@ function Films(){
     } else {
       setLocationFilter(locationFilter.filter(name => name != location))
     }
+  }
+
+  function handleLocationToggle(){
+    setLocationToggle(!locationToggle)
+  }
+  function handleYearToggle(){
+    setYearToggle(!yearToggle)
+  }
+  function handleDirecterToggle(){
+    setDirectorToggle(!directorToggle)
   }
 
   return(
@@ -79,20 +91,20 @@ function Films(){
           <div className="filters-container">
             <p className="filter-title">Filter by: </p>
             <div className="filter-container">
-              <button className="filter-button">Locations <img src={arrow} alt="more" /></button>
-              <ul className="filter-list">
+              <button className="filter-button" onClick={handleLocationToggle}>Locations <img src={arrow} alt="more" /></button>
+              <ul className={locationToggle ? "filter-list" : "none"}>
               {locations?.map(location => <FilterCard option={location.name} handle={handleLocation} filters={locationFilter}/>)}
               </ul>
             </div>
-            <div className="filter-container">
+            <div className="filter-container" onClick={handleYearToggle}>
               <button className="filter-button">Release date <img src={arrow} alt="more" /></button>
-              <ul className="filter-list">
+              <ul className={yearToggle ? "filter-list" : "none"}>
                 {yearsList?.map(year => <FilterCard option={year} handle={handleYear} filters={yearFilter}/>)}
               </ul>
             </div>
-            <div className="filter-container">
+            <div className="filter-container" onClick={handleDirecterToggle}>
               <button className="filter-button">Director <img src={arrow} alt="more" /></button>
-              <ul className="filter-list">
+              <ul className={directorToggle ? "filter-list" : "none"}>
                 {directorsList?.map(director => <FilterCard option={director} handle={handleDirector} filters={directorFilter}/>)}
               </ul>
             </div>

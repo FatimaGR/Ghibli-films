@@ -111,7 +111,7 @@
   top: 45px;
   max-height: 350px;
   overflow: auto;
-  display: none;
+  /* display: none; */
 }
 .filter-container{
   position: relative;
@@ -184,4 +184,7 @@
   color: #104ef5;
   list-style: none;
   font-weight: 700;
+}
+.none{
+  display: none;
 }

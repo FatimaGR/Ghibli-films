@@ -18,7 +18,10 @@ function Characters(){
   const [filmFilter, setFilmFilter] = useState([])
   const [specieFilter, setSpecieFilter] = useState([])
   const [isName, setIsName] = useState(false)
-  let nameUpper = ""
+  
+  const [genderToggle, setGenderToggle] = useState(false)
+  const [filmToggle, setFilmToggle] = useState(false)
+  const [specieToggle, setSpecieToggle] = useState(false)
 
   const gendersList = gettingGender(characters)
   const charactersList = initialData(characters, searchedCharacters, isName)
@@ -26,7 +29,7 @@ function Characters(){
   
   function handleSearchSubmit(name){
     setIsName(true)
-    nameUpper = name.toUpperCase()
+    const nameUpper = name.toUpperCase()
     const charactersFiltered = characters.filter((character) => character.name.toUpperCase().includes(nameUpper))
     setSearchedCharacters(charactersFiltered)
   }
@@ -40,7 +43,6 @@ function Characters(){
       setFilmFilter(filmFilter.filter((name)=> name !== film));
     }
   }
-
   function handleGender(e){
     const gender = e.target.name;
     const isChecked = e.target.checked;
@@ -50,7 +52,6 @@ function Characters(){
       setGenderFilter(genderFilter.filter((name)=> name !== gender));
     }
   }
-
   function handleSpecie(e){
     const specie = e.target.name;
     const isChecked = e.target.checked;
@@ -59,6 +60,16 @@ function Characters(){
     } else {
       setSpecieFilter(specieFilter.filter((name)=> name !== specie));
     }
+  }
+
+  function handleGenderToggle(){
+    setGenderToggle(!genderToggle)
+  }
+  function handleFilmToggle(){
+    setFilmToggle(!filmToggle)
+  }
+  function handleSpecieToggle(){
+    setSpecieToggle(!specieToggle)
   }
 
   return(
@@ -71,20 +82,20 @@ function Characters(){
           <div className="filters-container">
             <p className="filter-title">Filter by: </p>
             <div className="filter-container">
-              <button className="filter-button">Films <img src={arrow} alt="more" /></button>
-              <ul className="filter-list">
+              <button className="filter-button" onClick={handleGenderToggle}>Films <img src={arrow} alt="more" /></button>
+              <ul className={genderToggle ? "filter-list" : "none"}>
                 {films?.map(film => <FilterCard option={film.title} handle={handleFilm} filters={filmFilter}/>)}
               </ul>
             </div>
             <div className="filter-container">
-              <button className="filter-button">Gender <img src={arrow} alt="more" /></button>
-              <ul className="filter-list">
+              <button className="filter-button" onClick={handleFilmToggle}>Gender <img src={arrow} alt="more" /></button>
+              <ul className={filmToggle ? "filter-list" : "none"}>
                 {gendersList?.map(gender => <FilterCard option={gender} handle={handleGender} filters={genderFilter}/>)}
               </ul>
             </div>
             <div className="filter-container">
-              <button className="filter-button">Specie <img src={arrow} alt="more" /></button>
-              <ul className="filter-list">
+              <button className="filter-button" onClick={handleSpecieToggle}>Specie <img src={arrow} alt="more" /></button>
+              <ul className={specieToggle ? "filter-list" : "none"}>
                 {species?.map(specie => <FilterCard option={specie.name} handle={handleSpecie} filters={specieFilter}/>)}
               </ul>
             </div>
