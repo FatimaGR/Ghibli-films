@@ -25,6 +25,7 @@
 - JavaScript
 - React
 - CSS
+- [Studio Ghibli API](https://ghibliapi.vercel.app)
 
 ### Installation
 Run the following commands:
@@ -42,7 +43,7 @@ To view it open http://localhost:5173
 ![](./src/assets/readme/Home.png)
 
 ### Links
-- Live Site URL: [Ghibli Films](https://eatable-fg.vercel.app)
+- Live Site URL: [Ghibli Films](https://ghibli-films-fg.vercel.app)
 - Code in Github: [https://github.com/FatimaGR/Ghibli-films](https://github.com/FatimaGR/Ghibli-films)
 
 ## How to use
