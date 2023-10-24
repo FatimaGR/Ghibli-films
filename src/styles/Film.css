@@ -23,6 +23,7 @@
 .film-header .banner img{
   min-width: 700px;
   max-width: 64%;
+  object-fit: cover;
 }
 .film-header .banner{
   position: relative;
@@ -126,12 +127,16 @@
   color: #104ef5;
   text-transform: uppercase;
 }
-@media (max-width: 700px) {
+@media (max-width: 800px){
+  .film-header .banner{
+    max-width: 100%;
+  }
   .film-header .banner img{
     min-width: 90%;
+    min-height: 300px;
   }
   .film-header .titles{
-    max-width: 100%;
+    max-width: 90%;
     padding: 20px;
     gap: 10px;
     background-color: #104df5a0;
@@ -139,7 +144,10 @@
     bottom: 0;
     top: auto;
     border-top-right-radius: 20px;
+    box-sizing: border-box;
   }
+}
+@media (max-width: 700px) {
   .film-information{
     flex-direction: column;
   }
