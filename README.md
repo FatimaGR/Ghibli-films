@@ -34,7 +34,7 @@ npm install
 ```
 Running the app
 ```
-npm start
+npm run dev
 ```
 To view it open http://localhost:5173
 
